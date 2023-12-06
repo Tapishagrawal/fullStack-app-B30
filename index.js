@@ -7,10 +7,10 @@ const cors = require("cors");
 
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 app.use("/users", usersRouter)
 app.use("/notes", notesRouter)
-app.use(cors());
 
 app.listen(process.env.port, async () => {
     try {
