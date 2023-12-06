@@ -1,14 +1,13 @@
 import './App.css'
-import {Routes, Route} from "react-router-dom"
-import { Signup } from './components/Signup'
+import { AllRoutes } from './components/AllRoutes'
+import { Navbar } from './components/Navbar'
 function App() {
 
   return (
     <>
       <div className='App'>
-        <Routes>
-          <Route path='/sign-up' element={<Signup/>}/>
-        </Routes>
+        <Navbar/>
+        <AllRoutes/>
       </div>
     </>
   )
