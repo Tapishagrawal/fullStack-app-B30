@@ -93,16 +93,16 @@ export const Home = () => {
     return (
         <div style={{ textAlign: "center", paddingBottom: "5rem" }}>
             <p>Hello, {notes.length > 0 ? notes[0]?.username[0]?.toUpperCase()+notes[0]?.username?.slice(1): "welcome to note taker"}</p>
-            {
+            { 
                 updateMag &&
                 <span style={{ position: "fixed", top: "10%", left: "50%", transform: "translate(-50%)", backgroundColor: "black", paddingBlock: "0.5rem", paddingInline: "2rem", borderRadius: "0.2rem" }}>Your Notes updated.</span>
 
-            }
-            {
+            } 
+            { 
                 deleteMag &&
                 <span style={{ position: "fixed", top: "10%", left: "50%", transform: "translate(-50%)", backgroundColor: "black", paddingBlock: "0.5rem", paddingInline: "2rem", borderRadius: "0.2rem" }}>Your Notes updated.</span>
 
-            }
+            } 
             {model &&
                 <div onClick={() => setModel(false)} style={{ position: "fixed", top: "0", left: "0", backdropFilter: "blur(3px)", backgroundColor: "#39234f45", width: "100%", height: "100vh" }}></div>
             }

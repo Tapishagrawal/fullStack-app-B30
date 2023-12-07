@@ -23,9 +23,6 @@ export const AuthContextProvider = ({ children }) => {
             setIsLoding(false)
         }
     }
-    useEffect(() => {
-        localStorage.setItem("token", token)
-    }, [])
     return (
         <AuthContext.Provider value={{ handleLogin, isLoading, isMsg, token }}>
             {children}
