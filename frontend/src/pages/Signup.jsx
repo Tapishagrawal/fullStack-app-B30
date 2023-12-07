@@ -14,7 +14,7 @@ export const Signup = () => {
         }
         try {
             setIsLoding(true)
-            let res = await axios.post("http://localhost:4500/users/register", newUser)
+            let res = await axios.post("https://cautious-colt-garters.cyclic.app/users/register", newUser)
             setIsMgs(res.data.msg)
             setTimeout(()=>{
                 setIsMgs("")

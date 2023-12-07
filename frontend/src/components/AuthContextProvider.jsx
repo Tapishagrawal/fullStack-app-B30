@@ -10,7 +10,7 @@ export const AuthContextProvider = ({ children }) => {
     const handleLogin = async (newUser) => {
         try {
             setIsLoding(true)
-            let res = await axios.post("http://localhost:4500/users/login", newUser)
+            let res = await axios.post("https://cautious-colt-garters.cyclic.app/users/login", newUser)
             setIsMgs(res.data.msg)
             setToken(res.data.token)
             localStorage.setItem("token", res.data.token)

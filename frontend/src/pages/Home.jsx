@@ -16,10 +16,9 @@ export const Home = () => {
     const [updateMag, setUpdateMsg] = useState("");
     const [deleteMag, setDeleteMag] = useState("");
     const [isLoading, setIsLoading] = useState(false);
-
     const fetchNotesData = async () => {
         try {
-            let res = await axios(`http://localhost:4500/notes`, {
+            let res = await axios(`https://cautious-colt-garters.cyclic.app/notes`, {
                 headers: {
                     authorization: `Bearer ${token}`
                 }
@@ -32,7 +31,7 @@ export const Home = () => {
     const handleAddNotes = async (newnotes) => {
         try {
             setIsLoading(true);
-            let res = await axios.post("http://localhost:4500/notes/create", newnotes, {
+            let res = await axios.post("https://cautious-colt-garters.cyclic.app/notes/create", newnotes, {
                 headers: {
                     authorization: `Bearer ${token}`
                 }
@@ -49,7 +48,7 @@ export const Home = () => {
     const handleNotesUpdated = async (id, updatedNotes) => {
         try {
             setIsLoading(true);
-            let res = await axios.patch(`http://localhost:4500/notes/update/${id}`, updatedNotes, {
+            let res = await axios.patch(`https://cautious-colt-garters.cyclic.app/notes/update/${id}`, updatedNotes, {
                 headers: {
                     authorization: `Bearer ${token}`
                 }
@@ -75,7 +74,7 @@ export const Home = () => {
 
     const handleDelete = async (_id) => {
         try {
-            let res = await axios.delete(`http://localhost:4500/notes/delete/${_id}`, {
+            let res = await axios.delete(`https://cautious-colt-garters.cyclic.app/notes/delete/${_id}`, {
                 headers: {
                     authorization: `Bearer ${token}`
                 }
@@ -93,6 +92,7 @@ export const Home = () => {
     }, [msg, updateMag, deleteMag])
     return (
         <div style={{ textAlign: "center", paddingBottom: "5rem" }}>
+            <p>Hello, {notes.length > 0 ? notes[0]?.username[0]?.toUpperCase()+notes[0]?.username?.slice(1): "welcome to note taker"}</p>
             {
                 updateMag &&
                 <span style={{ position: "fixed", top: "10%", left: "50%", transform: "translate(-50%)", backgroundColor: "black", paddingBlock: "0.5rem", paddingInline: "2rem", borderRadius: "0.2rem" }}>Your Notes updated.</span>
@@ -119,8 +119,8 @@ export const Home = () => {
                 }
             </div>
             <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-around", alignItems: "center", gap: "2rem", marginTop: "5rem" }}>
-                {notes &&
-                    notes.map(note => (
+                {notes.length > 0 &&
+                    notes?.map(note => (
                         <div key={note._id} style={{ width: "31%" }}>
                             <NoteCard {...note} openEditModel={openEditModel} handleDelete={handleDelete} />
                         </div>
